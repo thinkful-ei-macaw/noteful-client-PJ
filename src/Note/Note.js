@@ -22,10 +22,6 @@ export default class Note extends React.Component {
         "content-type": "application/json",
       },
     })
-      .then((res) => {
-        if (!res.ok) return res.json().then((e) => Promise.reject(e));
-        return res.json();
-      })
       .then(() => {
         this.context.deleteNote(noteId);
         // allow parent to perform extra behaviour
@@ -53,7 +49,7 @@ export default class Note extends React.Component {
         <div className='Note__dates'>
           <div className='Note__dates-modified'>
             Modified
-            {modified}
+            {" "}
             <span className='Date'>{format(modified, "Do MMM YYYY")}</span>
           </div>
         </div>
